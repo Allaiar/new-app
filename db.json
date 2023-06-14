@@ -1,0 +1,76 @@
+{
+  "shoes": [
+    {
+      "id": 0,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Крассовки мужские ТУРБО",
+      "price": "3337",
+      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "Allayar",
+      "name": "radzhapov",
+      "password": "nazira647",
+      "email": "radzhapov.allayar@gmail.com",
+      "phone": "+996990200225",
+      "country": "Киргизия",
+      "address": "Ильменская 55",
+      "gender": "male"
+    }
+  ]
+}
