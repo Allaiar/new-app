@@ -37,7 +37,6 @@ function About(props) {
           </div>
         </section>
       </main>
-      <Footer/>
     </div>
   );
 }

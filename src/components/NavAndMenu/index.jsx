@@ -7,7 +7,7 @@ function NavAndMenu(props) {
         <div class="flex justify-between items-center py-6 px-10 container mx-auto">
           <div>
             <h1 class="text-2xl font-bold bg-gradient-to-tr from-green-400 to-green-600 bg-clip-text text-transparent hover:cursor-pointer">
-              <Link to='/'>QUALITYLIFE</Link>
+              <Link to="/">QUALITYLIFE</Link>
             </h1>
           </div>
           <div>
@@ -18,6 +18,14 @@ function NavAndMenu(props) {
             </div>
             <div class="flex items-center">
               <ul class="sm:flex space-x-4 hidden items-center">
+                <li>
+                  <a
+                    href="#"
+                    class="text-green-600 hover:text-green-500 text-md "
+                  >
+                    <Link to="/About">О Нас</Link>
+                  </a>
+                </li>
                 <li>
                   <a
                     href="#"

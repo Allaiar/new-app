@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../../components/Header/index";
-import Footer from "../../components/Footer";
+import Shoes from "../../components/Shoes";
 function HomePage(props) {
   return (
     <div>
       <Header/>
-      <Footer/>
+      <Shoes/>
     </div>
   );
 }

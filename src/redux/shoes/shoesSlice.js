@@ -25,8 +25,11 @@ export const shoesSlice = createSlice({
       state.isLoading = false;
       state.shoes = action.payload;
     });
-    builder.addCase(getShoes.rejected, (state) => {
-      state.isLoading = true;
+    builder.addCase(getShoes.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.message = action.payload.message;
+      state.shoes = null;
     });
   },
 });

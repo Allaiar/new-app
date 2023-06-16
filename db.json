@@ -2,63 +2,21 @@
   "shoes": [
     {
       "id": 0,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+      "title": "Монгусты",
+      "subtext": "Монгусты также могут играть роль в распространении семян растений. Они питаются фруктами и ягодами, а несъедобные части плодов, пропускаясь через их пищеварительную систему, могут выпадать с них в других местах, способствуя разнообразию и распространению растений в экосистеме.",
+      "img": "https://i.pinimg.com/736x/5c/94/39/5c943900e7b37abb5a046f3b61e96c6b.jpg"
     },
     {
       "id": 1,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+      "title": "Морские свинки",
+      "subtext": "Морские свинки сталкиваются с различными угрозами, включая изменение климата, загрязнение морской среды, потерю мест обитания и перекосы в экосистеме, вызванные воздействием человека. Защита морских свинок и их экосистем является важной задачей в сохранении морской биоразнообразия.",
+      "img": "https://wanigin-time-is-money.okinawa/wp-content/uploads/2015/08/8b4468e7a02bc405372fecd4499cb436.jpg"
     },
     {
       "id": 2,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 3,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 4,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 5,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 6,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 7,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 8,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
-    },
-    {
-      "id": 9,
-      "title": "Крассовки мужские ТУРБО",
-      "price": "3337",
-      "img": "https://cdn.demix.ru/upload/mdm/media_content/resize/b3c/500_500_2bba/81050950299.jpg"
+      "title": "Еноты",
+      "subtext": "Еноты могут играть важную роль в экосистеме, влияя на распространение семян и опыление растений. Они также могут контролировать численность насекомых и грызунов, которые могут повлиять на биоразнообразие и равновесие в экосистеме.",
+      "img": "https://sun9-8.userapi.com/vz90UDbYcuSUFs8eDj_AW0BKpD5KoDBmokuw9A/0TU0OMFji0w.jpg"
     }
   ],
   "users": [
