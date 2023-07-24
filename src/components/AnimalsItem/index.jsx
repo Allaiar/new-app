@@ -13,6 +13,7 @@ const AnimalsItem = ({ animals }) => {
   const [editing, setEditing] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [title, setTitle] = useState(animals.title);
+  const [img, setImg] = useState(animals.img);
   const [subtext, setSubtext] = useState(animals.subtext);
   const [showMenuToggle, setShowMenuToggle] = useState(true);
   const [fulltext, setFulltext] = useState(animals.fulltext);
@@ -39,8 +40,21 @@ const AnimalsItem = ({ animals }) => {
 
   const Edit = () => {
     if (editing) {
+      if (
+        img === animals.img &&
+        title === animals.title &&
+        subtext === animals.subtext &&
+        fulltext === animals.fulltext &&
+        fulltext2 === animals.fulltext2
+      ) {
+        toast.warning("Нет изменений для сохранения");
+        setEditing(!editing);
+        return;
+      }
+
       const updatedAnimals = {
         id: id,
+        img: img,
         title: title,
         subtext: subtext,
         fulltext: fulltext,
@@ -49,6 +63,7 @@ const AnimalsItem = ({ animals }) => {
       dispatch(editAnimal(updatedAnimals));
       toast.success("Вы успешно внесли изменения");
     }
+    setImg(animals.img);
     setTitle(animals.title);
     setSubtext(animals.subtext);
     setFulltext(animals.fulltext);
@@ -87,18 +102,6 @@ const AnimalsItem = ({ animals }) => {
 
   return (
     <div className="card rounded-lg shadow-md p-4 mb-10">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
       <div className="text-end">
         <Link onClick={handleScrollToTop} to={`/${animals.id}`}>
           <img
@@ -134,7 +137,7 @@ const AnimalsItem = ({ animals }) => {
           </div>
         </Link>
         {user.email.length ? (
-          <div className="flex justify-end absolute mr-1 mt-1 w-56">
+          <div className="flex justify-end mr-1 mt-1">
             {editing ? (
               <>
                 {showMenu && (
@@ -153,7 +156,7 @@ const AnimalsItem = ({ animals }) => {
               <div>
                 {showMenu && (
                   <div
-                    className="flex items-center gap-x-2"
+                    className="flex items-center -ml-8 gap-x-2"
                     style={{ position: "absolute", background: "transparent" }}
                   >
                     <p
@@ -162,10 +165,7 @@ const AnimalsItem = ({ animals }) => {
                     >
                       <ion-icon name="create"></ion-icon>
                     </p>
-                    <p
-                      className="py-2 rounded cursor-pointer"
-                      onClick={Delete}
-                    >
+                    <p className="py-2 rounded cursor-pointer" onClick={Delete}>
                       <ion-icon name="trash"></ion-icon>
                     </p>
                   </div>
