@@ -1,0 +1,10 @@
+.error-red {
+    color: rgb(185, 0, 0); 
+    position: absolute;
+  }
+  
+  .error-gray {
+    color: gray;
+    position: absolute;
+  }
+  

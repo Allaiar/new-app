@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import shoesSlice from "./shoes/shoesSlice";
+import animalsSlice from "./animals/animalsSlice";
+import teamSlice from "./team/teamSlice";
+import userSlice from "./user/user";
 
 export const store = configureStore({
   reducer: {
-    shoes: shoesSlice,
+    animals: animalsSlice,
+    team: teamSlice,
+    user: userSlice,
   },
 });

@@ -1,123 +1,158 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginAccount } from "../../redux/user/user";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const [userName, setuserName] = useState("");
-  const [pass, setPass] = useState("");
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  const LoginProccess = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      axios
-        .get("http://localhost:8000/users/" + userName)
-        .then(() => {
-          toast.success("Вы успешно вошли в свой аккаунт!");
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-        })
-        .catch(() => {
-          toast.error("Введите корректные данные");
-        });
-    }
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
+
+  const onSubmit = (data) => {
+    axios
+      .post("http://localhost:8000/login", data)
+      .then((resolve) => {
+        toast.success("Вход выполнен успешно");
+        navigate("/");
+        dispatch(
+          loginAccount({
+            ...resolve.data.user,
+            token: resolve.data.accessToken,
+          })
+        );
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            ...resolve.data.user,
+            token: resolve.data.accessToken,
+          })
+        );
+      })
+      .catch(() => {
+        toast.error("Не правильный логин или пароль");
+      });
   };
 
-  const validate = () => {
-    let result = true;
-    if (userName === "") {
-      result = false;
-      alert("Заполните никнейм");
-    }
-    if (pass === "") {
-      result = false;
-      alert("Заполните пароль");
-    }
-    return result;
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
   };
 
-  {
-    /* <ToastContainer
-    position="top-right"
-    autoClose={5000}
-    hideProgressBar
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="colored"
-  /> */
-  }
+  const handleScrollToTop = () => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 300);
+  };
+
   return (
-    <div className="">
-      <div class="flex flex-col h-screen bg-gray-100">
-        <div class="grid place-items-center mx-2 my-20 sm:my-auto">
-          <div
-            class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
-            px-6 py-10 sm:px-10 sm:py-6 
-            bg-white rounded-lg shadow-md lg:shadow-lg"
-          >
-            <h2 class="text-center font-semibold text-3xl lg:text-4xl text-green-800">
-              Логин
-            </h2>
-            <form class="mt-10" method="POST">
-              <label
-                for="email"
-                class="block text-xs font-semibold text-green-600 uppercase"
-              >
-                ИМЯ ПОЛЬЗОВАТЕЛЯ
+    <div className="container mx-auto">
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <div className="flex justify-center mx-auto my-32 px-10">
+        <div className="w-full max-w-lg nav rounded-lg shadow-lg">
+          <div className="px-6 py-8">
+            <h1 className="text-2xl font-bold text-green-800 mb-6">Вход</h1>
+            <div className="mb-8">
+              <label className="block text-xs font-medium text-green-800 mb-1">
+                Email
               </label>
               <input
+                {...register("email", {
+                  required: {
+                    message: "Email обязателен к заполнению",
+                    value: true,
+                  },
+                })}
+                className="login-input"
                 type="text"
-                placeholder="введите имя пользователя"
-                value={userName}
-                onChange={(e) => setuserName(e.target.value)}
-                class="block w-full py-3 px-1 mt-2 
-                    text-gray-800 appearance-none 
-                    border-b-2 border-gray-100
-                    focus:text-gray-500 focus:outline-none focus:border-gray-200"
-                required
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <label
-                for="password"
-                class="block mt-2 text-xs font-semibold text-green-600 uppercase"
+              <p
+                className={`text-xs mt-1 ${
+                  errors.email ? "error-red" : "error-gray"
+                }`}
               >
+                {errors.email && errors.email?.message}
+              </p>
+            </div>
+            <div className="mb-6">
+              <label className="block text-xs font-medium text-green-800 mb-1">
                 Пароль
               </label>
-              <input
-                type="password"
-                placeholder="введите пароль"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-                class="block w-full py-3 px-1 mt-2 mb-4
-                    text-gray-800 appearance-none 
-                    border-b-2 border-gray-100
-                    focus:text-gray-500 focus:outline-none focus:border-gray-200"
-              />
-              <button
-                onClick={LoginProccess}
-                class="w-full py-3 mt-10 bg-green-800 rounded-sm
-                    font-medium text-white uppercase
-                    focus:outline-none hover:bg-green-700 hover:shadow-none"
+              <div className="flex">
+                <input
+                  {...register("password", {
+                    required: {
+                      message: "Пароль обязателен к заполнению",
+                      value: true,
+                    },
+                  })}
+                  className="login-input"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Пароль"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  className="ml-4 mt-1 focus:outline-none"
+                  onClick={handleTogglePassword}
+                >
+                  {showPassword ? (
+                    <div className="text-2xl text-[#5c5d5c]">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                  ) : (
+                    <div className="text-2xl text-[#5c5d5c]">
+                      <ion-icon name="eye-off-outline"></ion-icon>
+                    </div>
+                  )}
+                </button>
+              </div>
+              <p
+                className={`text-xs mt-1 ${
+                  errors.password ? "error-red" : "error-gray"
+                }`}
               >
-                Войти
-              </button>
-              <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
-                <a href="#" class="flex-2 underline">
-                  Забыли пароль?
-                </a>
-                <p class="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
-                  или
-                </p>
-                <a href="#" class="flex-2 underline">
-                  <Link to="/registration">Зарегистрироваться</Link>
-                </a>
+                {errors.password && errors.password?.message}
+              </p>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="text-center">
+                <button className="py-2 px-6 text-sm bg-green-800 text-white rounded-full hover:bg-green-700 focus:outline-none">
+                  Войти
+                </button>
+                <Link onClick={handleScrollToTop} to="/registration">
+                  <h1 className="text-sm mt-3 flex-2 underline text">
+                    Нет аккаунта? Зарегистрируйтесь
+                  </h1>
+                </Link>
               </div>
             </form>
           </div>
@@ -126,5 +161,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

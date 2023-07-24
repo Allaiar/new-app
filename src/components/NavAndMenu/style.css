@@ -1,0 +1,9 @@
+@media (max-width: 490px) {
+  .custom-hide-div {
+    display: none;
+  }
+}
+.svg{
+  position: relative;
+  right: 35px;
+}

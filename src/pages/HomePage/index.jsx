@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "../../components/Header/index";
-import Shoes from "../../components/Shoes";
+import Animals from "../../components/Animals";
+import AnimalItem from "../AnimalItem";
 function HomePage(props) {
   return (
     <div>
       <Header/>
-      <Shoes/>
+      <Animals/>
+      <AnimalItem/>
     </div>
   );
 }

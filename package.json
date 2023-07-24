@@ -8,24 +8,29 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "json-server-auth": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.1",
+    "react-input-mask": "^2.0.4",
     "react-redux": "^8.0.7",
-    "react-router-dom": "^6.12.1",
+    "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.3",
     "redux": "^4.2.1",
     "sass": "^1.63.3",
     "slick-carousel": "^1.8.1",
+    "uuid": "^9.0.0",
+    "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --watch db.json --port 8000",
+    "server": "json-server-auth --watch db.json --port 8000",
     "dev": "concurrently \"npm run server\" \"npm start\"",
     "watch": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/style.css --watch",
-    "build": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/style.css",
+    "build": "tailwindcss build -i ./src/styles/index.css -o ./src/styles/style.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +53,9 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.2"
+    "autoprefixer": "^10.4.14",
+    "fast-glob": "^3.3.1",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3"
   }
 }
